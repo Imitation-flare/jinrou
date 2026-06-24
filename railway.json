@@ -1,7 +1,7 @@
 {
   "build": {
     "builder": "NIXPACKS",
-    "buildCommand": "npm install && cd front && npm install && npm run production-build && cd .."
+    "buildCommand": "sed -i 's/registry.npm.taobao.org/registry.npmjs.org/g' package-lock.json && npm ci && cd front && npm install && npm run production-build && cd .."
   },
   "deploy": {
     "startCommand": "SS_ENV=production SS_PACK=1 node app.js"
