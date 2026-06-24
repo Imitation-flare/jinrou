@@ -14,6 +14,7 @@ COPY ./manual ./manual/
 COPY ./client ./client/
 COPY ./server ./server/
 COPY ./language ./language/
+COPY ./config ./config/
 # expose to webserver.
 # specify user to run the app.
 USER node
