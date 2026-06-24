@@ -1,4 +1,5 @@
 FROM node:8
+ARG CACHEBUST=1
 MAINTAINER uhyo
 WORKDIR /jinrou
 COPY ./package.json ./package-lock.json ./
