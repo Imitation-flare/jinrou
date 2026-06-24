@@ -15,7 +15,6 @@ COPY ./client ./client/
 COPY ./server ./server/
 COPY ./language ./language/
 # expose to webserver.
-VOLUME ["/jinrou/client/static/", "/jinrou/public/"]
 # specify user to run the app.
 USER node
 # expose default port.
