@@ -1,12 +1,10 @@
-# Dockerfile to run jinrou in a docker container.
 FROM node:8
 MAINTAINER uhyo
-# define work directory
 WORKDIR /jinrou
-# First, install dependencies.
 COPY ./package.json ./package-lock.json ./
 RUN npm install --production
-# copy source files.
+COPY ./front ./front/
+RUN cd front && npm install && npm run production-build
 COPY ./prizedata ./prizedata/
 COPY ./public ./public/
 COPY ./app.js ./
@@ -15,10 +13,6 @@ COPY ./client ./client/
 COPY ./server ./server/
 COPY ./language ./language/
 COPY ./config ./config/
-# expose to webserver.
-# specify user to run the app.
 USER node
-# expose default port.
 EXPOSE 8800
-# define command.
 CMD ["node", "app.js"]
